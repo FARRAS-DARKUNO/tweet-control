@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 h1(Color color) {
   return GoogleFonts.openSans(
     color: color,
-    fontSize: 25,
+    fontSize: 24,
     fontWeight: FontWeight.w700,
   );
 }

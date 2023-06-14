@@ -45,7 +45,10 @@ class _LoginState extends State<Login> {
                   tag: 'Password',
                   title: 'Password',
                 ),
-                const NormalButton(title: 'Login'),
+                GestureDetector(
+                  onTap: () => gotoNavigation(context),
+                  child: const NormalButton(title: 'Login'),
+                ),
                 Container(
                     margin: const EdgeInsets.only(bottom: 20),
                     child: Image.asset('assets/images/google.png', scale: 10)),

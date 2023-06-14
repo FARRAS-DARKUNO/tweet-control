@@ -7,8 +7,7 @@ sHeightDynamic(BuildContext context, dynamic value) {
 }
 
 sHeightFull(BuildContext context) {
-  return MediaQuery.of(context).size.height -
-      MediaQuery.of(context).viewPadding.top;
+  return MediaQuery.of(context).size.height;
 }
 
 sHeightMinus(BuildContext context, dynamic value) {
