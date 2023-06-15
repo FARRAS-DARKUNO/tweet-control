@@ -78,7 +78,8 @@ class _CustomeNavigationState extends State<CustomeNavigation> {
                                 Container(
                                   width: widthMenus - 4,
                                   padding: const EdgeInsets.symmetric(
-                                      horizontal: 10),
+                                    horizontal: 10,
+                                  ),
                                   child: Row(
                                     children: [
                                       Icon(
@@ -100,9 +101,10 @@ class _CustomeNavigationState extends State<CustomeNavigation> {
                   ],
                 ),
               ),
-              SizedBox(
+              Container(
+                padding: const EdgeInsets.all(10),
                 height: sHeightFull(context),
-                width: sWidthDynamic(context, 0.75) - 10,
+                width: sWidthDynamic(context, 0.77) - 10,
                 child: BlocBuilder<RouteBloc, RouteState>(
                   builder: (context, state) {
                     switch (state.routeState) {

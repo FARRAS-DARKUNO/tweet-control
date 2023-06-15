@@ -6,6 +6,10 @@ sHeightDynamic(BuildContext context, dynamic value) {
   return MediaQuery.of(context).size.height * value;
 }
 
+sHeightContain(BuildContext context) {
+  return MediaQuery.of(context).size.height - 60 - 20 - 50;
+}
+
 sHeightFull(BuildContext context) {
   return MediaQuery.of(context).size.height;
 }
@@ -28,4 +32,8 @@ sWidthFull(BuildContext context) {
 
 sWidthMinus(BuildContext context, dynamic value) {
   return MediaQuery.of(context).size.width - value;
+}
+
+sWidthContain(BuildContext context) {
+  return MediaQuery.of(context).size.width * 0.77 - 30;
 }
