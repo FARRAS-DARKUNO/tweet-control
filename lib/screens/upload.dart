@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:responsive_grid/responsive_grid.dart';
-import 'package:tweet_control/global/colors.dart';
 import 'package:tweet_control/provider/bloc/route_bloc.dart';
-import 'package:tweet_control/utils/name_page.dart';
 import 'package:tweet_control/utils/sosmed.dart';
 import 'package:tweet_control/widget/box_input/search_input.dart';
 
@@ -40,9 +38,11 @@ class _UploadState extends State<Upload> {
                   children: listSosmed.map((value) {
                     return GestureDetector(
                       onTap: () {
-                        context
-                            .read<RouteBloc>()
-                            .add(SetRoutePageEvent(twitter));
+                        value['action'] == 1
+                            ? context
+                                .read<RouteBloc>()
+                                .add(SetRoutePageEvent(value['name']))
+                            : null;
                       },
                       child: Container(
                         foregroundDecoration: value['action'] == 0
