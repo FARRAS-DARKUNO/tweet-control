@@ -25,7 +25,7 @@ class _LastUpdateState extends State<LastUpdate> {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Container(
-            height: widget.hightFull - 180,
+            height: widget.hightFull / 3,
             width: sWidthFull(context),
             decoration: const BoxDecoration(
               image: DecorationImage(

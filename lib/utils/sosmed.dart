@@ -1,0 +1,28 @@
+import 'package:tweet_control/utils/name_page.dart';
+
+List listSosmed = [
+  {'name': twitter, 'icon': 'assets/icons/twiter.png', 'action': 1},
+  {'name': akulaku, 'icon': 'assets/icons/akulaku.png', 'action': 0},
+  {'name': blogspot, 'icon': 'assets/icons/blogspot.png', 'action': 0},
+  {'name': discord, 'icon': 'assets/icons/discord.png', 'action': 0},
+  {'name': facebook, 'icon': 'assets/icons/facebook.png', 'action': 0},
+  {'name': gooplePlus, 'icon': 'assets/icons/g.png', 'action': 0},
+  {'name': instagram, 'icon': 'assets/icons/instagram.png', 'action': 0},
+  {'name': lazada, 'icon': 'assets/icons/lazada.png', 'action': 0},
+  {'name': line, 'icon': 'assets/icons/line.png', 'action': 0},
+  {'name': linkedin, 'icon': 'assets/icons/linkedin.png', 'action': 0},
+  {'name': pintersent, 'icon': 'assets/icons/pinterest.png', 'action': 0},
+  {'name': shopee, 'icon': 'assets/icons/shopee.png', 'action': 0},
+  {'name': skype, 'icon': 'assets/icons/skype.png', 'action': 0},
+  {'name': snapchat, 'icon': 'assets/icons/snapchat.png', 'action': 0},
+  {'name': telegram, 'icon': 'assets/icons/telegram.png', 'action': 0},
+  {'name': tiktok, 'icon': 'assets/icons/tiktok.png', 'action': 0},
+  {'name': tokopedia, 'icon': 'assets/icons/tokped.png', 'action': 0},
+  {'name': tumblr, 'icon': 'assets/icons/tumblr.png', 'action': 0},
+  {'name': vimeo, 'icon': 'assets/icons/vimeo.png', 'action': 0},
+  {'name': vine, 'icon': 'assets/icons/vine.png', 'action': 0},
+  {'name': vk, 'icon': 'assets/icons/vk.png', 'action': 0},
+  {'name': whatsup, 'icon': 'assets/icons/wa.png', 'action': 0},
+  {'name': wordpress, 'icon': 'assets/icons/wordpress.png', 'action': 0},
+  {'name': youtube, 'icon': 'assets/icons/youtube.png', 'action': 0},
+];
