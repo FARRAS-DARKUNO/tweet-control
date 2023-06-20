@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:tweet_control/provider/bloc/route_bloc.dart';
+import 'package:tweet_control/provider/resolution_bloc/resolution_bloc.dart';
+import 'package:tweet_control/provider/route_bloc/route_bloc.dart';
 import 'package:tweet_control/screens/splash_screen.dart';
 
 void main() {
@@ -22,6 +23,8 @@ class _MyAppState extends State<MyApp> {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.landscapeRight,
       DeviceOrientation.landscapeLeft,
+      DeviceOrientation.portraitUp,
+      DeviceOrientation.portraitDown,
     ]);
   }
 
@@ -41,6 +44,7 @@ class _MyAppState extends State<MyApp> {
     return MultiBlocProvider(
       providers: [
         BlocProvider(create: (context) => RouteBloc()),
+        BlocProvider(create: (context) => ResolutionBloc()),
       ],
       child: MaterialApp(
         title: 'Flutter Demo',

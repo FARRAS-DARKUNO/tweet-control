@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../global/colors.dart';
+import '../utils/check_resolution.dart';
 import '../utils/token_handler.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -20,6 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
+    checkTablet(context);
     return Scaffold(
       body: Container(
         color: cWhite,

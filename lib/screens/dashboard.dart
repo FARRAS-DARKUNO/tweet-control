@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tweet_control/global/size.dart';
+import 'package:tweet_control/provider/resolution_bloc/resolution_bloc.dart';
 import 'package:tweet_control/widget/card/last_update.dart';
 import 'package:tweet_control/widget/card/list_update.dart';
 import 'package:tweet_control/widget/card/plant.dart';
@@ -18,30 +20,38 @@ class _DashboardState extends State<Dashboard> {
   @override
   Widget build(BuildContext context) {
     var size = MediaQuery.of(context).size;
-    final double itemHeight = (size.height - kToolbarHeight - 24) / 2;
+    double itemHeight = 270;
     final double itemWidth = size.width / 2;
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        const GeneralHeader(tittle: 'Dashboard'),
-        SizedBox(
-          height: sHeightContain(context),
-          child: GridView.count(
-            childAspectRatio: (itemWidth / itemHeight),
-            primary: false,
-            crossAxisSpacing: 10,
-            mainAxisSpacing: 10,
-            crossAxisCount: 2,
-            children: <Widget>[
-              const TotalSaved(),
-              const ProgressBar(),
-              const Plant(),
-              LastUpdate(hightFull: itemHeight),
-              const ListUpdate()
-            ],
-          ),
-        )
-      ],
+    return BlocBuilder<ResolutionBloc, ResolutionState>(
+      builder: (context, state) {
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const GeneralHeader(tittle: 'Dashboard'),
+            SizedBox(
+              height: state.isTablet
+                  ? sHeightContain(context)
+                  : sHeightMinus(context, 135),
+              child: GridView.count(
+                childAspectRatio: state.isTablet
+                    ? (itemWidth / itemHeight)
+                    : (itemWidth / 120),
+                primary: false,
+                crossAxisSpacing: 10,
+                mainAxisSpacing: 10,
+                crossAxisCount: state.isTablet ? 2 : 1,
+                children: <Widget>[
+                  const TotalSaved(),
+                  const ProgressBar(),
+                  const Plant(),
+                  LastUpdate(hightFull: itemHeight),
+                  const ListUpdate()
+                ],
+              ),
+            )
+          ],
+        );
+      },
     );
   }
 }

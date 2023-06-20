@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:tweet_control/global/colors.dart';
 import 'package:tweet_control/global/fonts.dart';
 import 'package:tweet_control/global/size.dart';
+import 'package:tweet_control/provider/resolution_bloc/resolution_bloc.dart';
 
 class GeneralHeader extends StatefulWidget {
   final String tittle;
@@ -14,34 +16,55 @@ class GeneralHeader extends StatefulWidget {
 class _GeneralHeaderState extends State<GeneralHeader> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      alignment: Alignment.topCenter,
-      width: sWidthContain(context),
-      height: 65,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+    return BlocBuilder<ResolutionBloc, ResolutionState>(
+      builder: (context, state) {
+        return Container(
+          alignment: Alignment.topCenter,
+          width: state.isTablet ? sWidthContain(context) : sWidthFull(context),
+          height: 65,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text('Hallo Deva Alfatih Mutoral', style: body(cGray)),
-              const SizedBox(height: 5),
-              Text(widget.tittle, style: h1(cBlack)),
+              Row(
+                children: [
+                  state.isTablet
+                      ? Container()
+                      : GestureDetector(
+                          onTap: () => openDrawer(context),
+                          child: const Icon(Icons.menu),
+                        ),
+                  SizedBox(width: state.isTablet ? 0 : 10),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text('Hallo Deva Alfatih Mutoral', style: body(cGray)),
+                      SizedBox(height: state.isTablet ? 5 : 0),
+                      Text(widget.tittle, style: h1(cBlack)),
+                    ],
+                  ),
+                ],
+              ),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Icon(Icons.notifications_none,
+                      color: cBlack, size: state.isTablet ? 30 : 24),
+                  const SizedBox(width: 10),
+                  Icon(Icons.settings,
+                      color: cBlack, size: state.isTablet ? 30 : 24),
+                  const SizedBox(width: 10),
+                  CircleAvatar(radius: state.isTablet ? 24 : 16)
+                ],
+              )
             ],
           ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              Icon(Icons.notifications_none, color: cBlack, size: 30),
-              SizedBox(width: 10),
-              Icon(Icons.settings, color: cBlack, size: 30),
-              SizedBox(width: 10),
-              CircleAvatar(radius: 24)
-            ],
-          )
-        ],
-      ),
+        );
+      },
     );
+  }
+
+  openDrawer(BuildContext context) {
+    Scaffold.of(context).openDrawer();
   }
 }
