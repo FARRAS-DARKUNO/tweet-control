@@ -9,5 +9,7 @@ checkTablet(BuildContext context) {
 
   if (screenWidth < 720) {
     context.read<ResolutionBloc>().add(SetResolutionEvent(false));
+  } else {
+    context.read<ResolutionBloc>().add(SetResolutionEvent(true));
   }
 }
